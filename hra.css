@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: Lobster;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 45px;
+  color: #ffffff;
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(to bottom, #615dad, #ffc8da);
+  height: 100vh;
+  margin: 0;
+}
