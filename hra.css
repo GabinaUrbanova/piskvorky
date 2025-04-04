@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+
 h1 {
   font-family: Lobster;
   font-weight: 400;
@@ -15,18 +16,59 @@ body {
   background: linear-gradient(to bottom, #615dad, #ffc8da);
   height: 100vh;
   margin: 0;
-  max-width: 80vmin;
 }
 
 .ikony {
   font-size: 20px;
   font-family: sans-serif;
   font-weight: bold;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding: 0 10px;
   color: #ffffff;
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: stretch;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ikony__left {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.ikony__right {
+  display: flex;
+  align-items: center;
+}
+
+.ikony a {
+  display: inline-block;
+  margin-left: 0.3rem;
+}
+
+a.ikony__home {
+  border: 5px solid #1fcca4;
+  background-color: #1fcca4;
+  border-radius: 3px 3px 3px 3px;
+}
+
+a.ikony__home:hover {
+  background-color: #1cbb96;
+}
+
+a.ikony__restart {
+  border: 5px solid #0090e9;
+  background-color: #0090e9;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.hraci-pole {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  max-width: 80vmin;
+  margin: auto;
+}
+
+button {
+  width: 100%;
+  aspect-ratio: 1 / 1;
 }
