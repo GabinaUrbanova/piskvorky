@@ -74,15 +74,16 @@ button {
 }
 
 .board__field--circle {
-  background-image: url("circle.svg");
+  background-image: url("circle_black.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .board__field--cross {
-  background-image: url("cross.svg");
+  background-image: url("cross_black.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
