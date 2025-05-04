@@ -4,7 +4,7 @@
 
 
 h1 {
-  font-family: Lobster;
+  font-family: "Lobster", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 45px;
@@ -22,7 +22,9 @@ body {
   font-size: 20px;
   font-family: sans-serif;
   font-weight: bold;
-  padding: 0 10px;
+  padding: 0;
+  max-width: 80vmin;
+  margin: 0 auto;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -68,9 +70,16 @@ a.ikony__restart {
   margin: auto;
 }
 
-button {
+.hraci-pole button {
   width: 100%;
   aspect-ratio: 1 / 1;
+  padding: 0;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid #5e5d5d;
+  cursor: pointer;
 }
 
 .board__field--circle {
@@ -87,3 +96,6 @@ button {
   background-size: cover;
 }
 
+button:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
