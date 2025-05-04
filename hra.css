@@ -83,14 +83,14 @@ button {
 }
 
 .board__field--circle {
-  background-image: url("circle_black.svg");
+  background-image: url("kolecko_black1.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .board__field--cross {
-  background-image: url("cross_black.svg");
+  background-image: url("krizek_black1.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
