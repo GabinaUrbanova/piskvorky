@@ -1,3 +1,5 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
+
 let currentPlayer = 'circle';
 
 const fields = document.querySelectorAll('.hraci-pole button');
@@ -23,9 +25,10 @@ const handleClick = (event) => {
   clickedField.disabled = true;
 
   const winner = findWinner(getBoardState());
-  if (winner) {
+  if (winner === 'x' || winner === 'o') {
     setTimeout(() => {
-      alert(`Vyhrál hráč: ${winner === 'circle' ? 'kolečko' : 'křížek'}`);
+      alert(`Vyhrál hráč: ${winner === 'o' ? 'kolečko' : 'křížek'}`);
+      location.reload();
     }, 100);
     fields.forEach((field) => (field.disabled = true));
   }
@@ -58,11 +61,11 @@ if (restartBtn) {
 const getBoardState = () => {
   return Array.from(fields).map((field) => {
     if (field.classList.contains('board__field--circle')) {
-      return 'circle';
+      return 'o';
     } else if (field.classList.contains('board__field--cross')) {
-      return 'cross';
+      return 'x';
     } else {
-      return null;
+      return '_';
     }
   });
 };
