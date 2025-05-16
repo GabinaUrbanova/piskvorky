@@ -5,6 +5,42 @@ let currentPlayer = 'circle';
 const fields = document.querySelectorAll('.hraci-pole button');
 const currentPlayerImg = document.querySelector('.ikony__left img');
 
+const getBoardState = () => {
+  return Array.from(fields).map((field) => {
+    if (field.classList.contains('board__field--circle')) {
+      return 'o';
+    } else if (field.classList.contains('board__field--cross')) {
+      return 'x';
+    } else {
+      return '_';
+    }
+  });
+};
+
+const playAIMove = async () => {
+  const board = getBoardState();
+
+  const response = await fetch(
+    'https://piskvorky.czechitas-podklady.cz/api/suggest-next-move',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        board: board,
+        player: 'x',
+      }),
+    },
+  );
+
+  const data = await response.json();
+  const { x, y } = data.position;
+  const index = x + y * 10;
+
+  fields[index].click();
+};
+
 const handleClick = (event) => {
   const clickedField = event.target;
 
@@ -29,8 +65,13 @@ const handleClick = (event) => {
     setTimeout(() => {
       alert(`Vyhrál hráč: ${winner === 'o' ? 'kolečko' : 'křížek'}`);
       location.reload();
-    }, 100);
-    fields.forEach((field) => (field.disabled = true));
+    }, 200);
+    return;
+  }
+  if (currentPlayer === 'cross') {
+    setTimeout(() => {
+      playAIMove();
+    }, 500);
   }
 };
 
@@ -57,15 +98,3 @@ if (restartBtn) {
     }
   });
 }
-
-const getBoardState = () => {
-  return Array.from(fields).map((field) => {
-    if (field.classList.contains('board__field--circle')) {
-      return 'o';
-    } else if (field.classList.contains('board__field--cross')) {
-      return 'x';
-    } else {
-      return '_';
-    }
-  });
-};
